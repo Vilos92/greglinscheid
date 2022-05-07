@@ -1,6 +1,11 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import tw from 'twin.macro'
+
+const StyledTestDiv = tw.div`
+  text-red-500
+`
 
 const Home: NextPage = () => {
   return (
@@ -16,6 +21,7 @@ const Home: NextPage = () => {
           <a className="text-blue-600" href="https://nextjs.org">
             Next.js!
           </a>
+          <StyledTestDiv>Test hello blog</StyledTestDiv>
         </h1>
 
         <p className="mt-3 text-2xl">
