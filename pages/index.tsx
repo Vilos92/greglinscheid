@@ -16,13 +16,17 @@ const Home: NextPage = () => {
       </Head>
 
       <main className='flex w-full flex-1 flex-col items-center justify-center px-20 text-center'>
-        <h1 className='text-6xl font-bold'>
-          Welcome to{' '}
-          <a className='text-blue-600' href='https://nextjs.org'>
-            Next.js!
-          </a>
-          <StyledTestDiv>Test hello blog</StyledTestDiv>
-        </h1>
+        <div className='prose'>
+          <h1 className=''>
+            Welcome to{' '}
+            <a className='text-blue-600' href='https://nextjs.org'>
+              Next.js!
+            </a>
+            <StyledTestDiv>Test hello blog</StyledTestDiv>
+          </h1>
+        </div>
+
+        <h2>Smaller h2 text</h2>
 
         <p className='mt-3 text-2xl'>
           Get started by editing{' '}
