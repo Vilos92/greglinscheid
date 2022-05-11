@@ -2,19 +2,6 @@ import {Prose} from '../components/Prose';
 
 <Prose>
 
-# Tests
-
-Inline `code block`
-
-Code block with prism
-
-```js
-const test = 1;
-const test2 = 2;
-const stringTest = '123';
-console.log(`${test}, ${test2}, ${stringTest})
-```
-
 # Making greglinscheid.com
 
 This is the first article of my website, which explains how I made this website.
@@ -27,63 +14,92 @@ The motivations for this website are:
 
 # Pre-Requisites
 
-This article assumes a reasonable experience with the `npm` ecosystem `ReactJS`.
+This article assumes a reasonable experience with the `npm` ecosystem and `ReactJS`.
 
 ## pnpm
 
-I used `pnpm` for this project, but you could just as well use other package managers such as `npm` or `yarn`. A nice thing about `pnpm` is that it uses hard linking and symbolic linking to manage its `node_modules`, which can lead to less disk bloat and boosted installation speeds. I recommend doing research on the benefits of these different package managers, as they are all viable but have their own trade-offs.
+I used [pnpm](https://pnpm.io/) for this project, but you could just as well use other package managers such as `npm` or `yarn`.
 
-You can install `pnpm` using `npm` with the following command:
+## TypeScript
 
-```bash
-npm install -g pnpm
-```
-
-Alternative means of installing `pnpm` [can be found here](https://pnpm.io/installation).
+This project is using [TypeScript](https://www.typescriptlang.org/).
 
 ## create-next-app
 
-This project uses the [Next.js](https://nextjs.org/) framework.
+This project uses the [Next.js](https://nextjs.org/) framework, configured to use TypeScript.
 
 # Setting up the project
 
-## Creating the app
-
 ## twin.macro config
 
+I have enjoyed using [twin.macro](https://github.com/ben-rogerson/twin.macro) as a means of implementing [Tailwind CSS](https://tailwindcss.com/) classes while using CSS-in-JS components. For example, a component can quickly be defined using the `tw` helper:
+
+```js
+const StyledColumnDiv = tw.div`
+  flex
+  flex-column
+  items-center
+`;
+```
+
+If `twin.macro` is not flexible enough, it is easy to fallback to `styled-components` and even have interoperability between the libraries.
+
+```js
+const StyledModalDiv =
+  styled.div <
+  {$isVisible: boolean} >
+  `
+  hidden
+  ${({$isVisible}) => $isVisible && tw`block`}
+`;
+```
+
+Some links which may be useful in getting `twin.macro` setup for a NextJS project:
+
 - https://github.com/ben-rogerson/twin.examples/tree/master/next-styled-components
-- styled-components
-- twin.d.ts to import styled
+- twin.d.ts to import styles directly from `twin.macro`
+- [Tailwind CSS IntelliSense and Twin](https://github.com/ben-rogerson/twin.macro/discussions/227)
 
 ## eslint
 
-- eslint
-- eslint-config-next
-- @next/eslint-plugin-next
-- @typescript-eslint/eslint-plugin
-- @typescript-eslint/parser
+I use [eslint](https://eslint.org/) for linting and flagging code errors. The below are the modules I use for my eslint setup:
+
+- `eslint`
+- `eslint-config-next`
+- `@next/eslint-plugin-next`
+- `@typescript-eslint/eslint-plugin`
+- `@typescript-eslint/parser`
+
+For more details my eslint setup you could take a look at `.eslintrc.json`.
 
 ## prettier
 
-- prettier
-- eslint-config-prettier
-- eslint-plugin-prettier
-- @trivago/prettier-plugin-sort-imports
+I use [prettier](https://prettier.io/) for code formatting. By leaning into prettier to auto-format my code, I can spend less time thinking about code style and more time on my actual implementation. The below are the modules I use for my prettier setup:
 
-## mdx
+- `prettier`
+- `eslint-config-prettier`
+- `eslint-plugin-prettier`
+- `@trivago/prettier-plugin-sort-imports`
 
-- Unreset due to twin.macro
-- https://github.com/ixkaito/unreset.css/blob/master/dist/unreset.css
-- tailwindcss/typography
-- The Prose component.
+My prettier config can be found in `prettier.config.js`
+
+## MDX
+
+- Introduce [MDX](https://mdxjs.com/) to allow content to be quickly drafted, while still having the flexibility to use React components.
+
+## Typography
+
+- Styles are reset by the inclusion of Tailwind in the project.
+- I've introduced [@tailwindcss/typography](https://tailwindcss.com/docs/typography-plugin) to provide the `prose` class, which unresets the style of its children.
 
 ## Highlighting code blocks
 
-- remark-prism
-- Inline code blocks (handled from the Prose component).
+- To highlight code blocks I've added [remark-prism](https://github.com/sergioramos/remark-prism), which uses [Prism](https://prismjs.com/) to provide syntax highlighting.
+- I am using the [Dracula](https://draculatheme.com/prism) theme to add color to these code blocks.
 
 ## Deploying
 
-- Deplying to Vercel
+- I use [namecheap](https://www.namecheap.com/) as my domain name registrar. This domain costs me ~$5 a year.
+- I deploy this project to [Vercel](https://vercel.com) using their free tier.
 
 </Prose>
