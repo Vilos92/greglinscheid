@@ -1,5 +1,5 @@
 import {FC} from 'react';
-import tw, {styled} from 'twin.macro';
+import {styled} from 'twin.macro';
 
 /*
  * Styles.
