@@ -16,7 +16,7 @@ The motivations for this website are:
 
 # Pre-Requisites
 
-This post assumes some familiarity with the `npm` ecosystem and `ReactJS`.
+This post assumes some familiarity with the `node` ecosystem and `ReactJS`.
 
 ## pnpm
 
@@ -26,7 +26,7 @@ I used [pnpm](https://pnpm.io/) for this project, but you could just as well use
 
 This project uses [TypeScript](https://www.typescriptlang.org/).
 
-## create-next-app
+## Next.js
 
 This project uses the [Next.js](https://nextjs.org/) framework, configured to use TypeScript.
 
@@ -47,10 +47,7 @@ const StyledColumnDiv = tw.div`
 If `twin.macro` is not flexible enough, it is easy to fallback to `styled-components` and even have interoperability between the libraries.
 
 ```js
-const StyledModalDiv =
-  styled.div <
-  {$isVisible: boolean} >
-  `
+const StyledModalDiv = styled.div<{$isVisible: boolean}>`
   hidden
   ${({$isVisible}) => $isVisible && tw`block`}
 `;
@@ -72,7 +69,7 @@ I use [eslint](https://eslint.org/) for linting and flagging code errors. The be
 - `@typescript-eslint/eslint-plugin`
 - `@typescript-eslint/parser`
 
-For more details my eslint setup you could take a look at `.eslintrc.json`.
+For more details my eslint regarding my setup you can take a look at `.eslintrc.json`.
 
 ## prettier
 
@@ -103,7 +100,7 @@ I am using the [Dracula](https://draculatheme.com/prism) theme to add color to t
 
 ## Deploying
 
-I use [namecheap](https://www.namecheap.com/) as my domain name registrar. This domain costs me ~$5 a year.
+I use [namecheap](https://www.namecheap.com/) as my domain name registrar. This domain costs me ~$15 a year.
 
 I deploy this project to [Vercel](https://vercel.com) using their free tier.
 

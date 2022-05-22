@@ -6,7 +6,7 @@ import tw from 'twin.macro';
  */
 
 const StyledColumnDiv = tw.div`
-  bg-blue-300
+  bg-green-600
 
   flex
   flex-col

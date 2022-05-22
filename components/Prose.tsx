@@ -1,11 +1,15 @@
 import {FC} from 'react';
-import {styled} from 'twin.macro';
+import tw, {styled} from 'twin.macro';
 
 /*
  * Styles.
  */
 
 const StyledProseDiv = styled.div`
+  & * {
+    ${tw`text-white`}
+  }
+
   h1:not(:first-child) {
     margin-top: 32px;
   }
@@ -13,8 +17,10 @@ const StyledProseDiv = styled.div`
   code {
     color: #f8f8f2;
     background: #282a36;
-    padding: 1px 2px 1px 2px;
-    border-radius: 5px;
+
+    ${tw`
+      rounded-md p-1 font-mono
+    `}
   }
 `;
 
