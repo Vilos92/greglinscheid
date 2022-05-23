@@ -6,6 +6,7 @@ import tw from 'twin.macro';
  */
 
 const StyledColumnDiv = tw.div`
+  mx-1.5
   flex
   flex-col
   items-center
