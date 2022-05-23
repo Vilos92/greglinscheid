@@ -1,8 +1,13 @@
+import {Head} from '../components/Head';
 import {MainColumn} from '../components/MainColumn';
 import {Prose} from '../components/Prose';
 
+<Head title='Making this site' />
+
 <MainColumn>
 <Prose>
+
+[Home](/) > _Making this site_
 
 # Making this website
 
@@ -47,7 +52,10 @@ const StyledColumnDiv = tw.div`
 If `twin.macro` is not flexible enough, it is easy to fallback to `styled-components` and even have interoperability between the libraries.
 
 ```js
-const StyledModalDiv = styled.div<{$isVisible: boolean}>`
+const StyledModalDiv =
+  styled.div <
+  {$isVisible: boolean} >
+  `
   hidden
   ${({$isVisible}) => $isVisible && tw`block`}
 `;
