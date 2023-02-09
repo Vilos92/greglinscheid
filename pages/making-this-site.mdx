@@ -52,7 +52,10 @@ const StyledColumnDiv = tw.div`
 If `twin.macro` is not flexible enough, it is easy to fallback to `styled-components` and even have interoperability between the libraries.
 
 ```js
-const StyledModalDiv = styled.div<{$isVisible: boolean}>`
+const StyledModalDiv =
+  styled.div <
+  {$isVisible: boolean} >
+  `
   hidden
   ${({$isVisible}) => $isVisible && tw`block`}
 `;
@@ -60,7 +63,7 @@ const StyledModalDiv = styled.div<{$isVisible: boolean}>`
 
 Some links which may be useful in getting `twin.macro` setup for a NextJS project:
 
-- https://github.com/ben-rogerson/twin.examples/tree/master/next-styled-components
+- [https://github.com/ben-rogerson/twin.examples/tree/master/next-styled-components](https://github.com/ben-rogerson/twin.examples/tree/master/next-styled-components)
 - twin.d.ts to import styles directly from `twin.macro`
 - [Tailwind CSS IntelliSense and Twin](https://github.com/ben-rogerson/twin.macro/discussions/227)
 
